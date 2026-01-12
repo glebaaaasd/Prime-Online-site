@@ -6,14 +6,14 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-/* Мягкий тёмный фон с градиентом */
+/* Фон с градиентом и текст */
 body {
   background: linear-gradient(135deg, #2a0f0f, #3b1212);
   color: #e0e0e0;
   scroll-behavior: smooth;
 }
 
-/* Скрываем фиксированную навигацию до появления */
+/* Навигация */
 header {
   display: flex;
   justify-content: space-between;
@@ -26,99 +26,29 @@ header {
   z-index: 100;
   backdrop-filter: blur(4px);
 }
-
-/* Логотип */
-header .logo {
-  font-size: 30px;
-  font-weight: 700;
-  color: #ffcccc;
-}
-
-/* Меню */
-header nav a {
-  color: #e0e0e0;
-  text-decoration: none;
-  margin-left: 18px;
-  font-size: 16px;
-  transition: 0.25s ease;
-}
-header nav a:hover {
-  color: #ff9999;
-  text-decoration: underline;
-}
+header .logo { font-size: 30px; font-weight: 700; color: #ffcccc; }
+header nav a { color: #e0e0e0; text-decoration: none; margin-left: 18px; font-size: 16px; transition: 0.25s ease; }
+header nav a:hover { color: #ff9999; text-decoration: underline; }
 
 /* Секции */
-section {
-  padding: 100px 40px;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.6s ease-out;
-  border-radius: 12px;
-}
-
-/* Главная секция */
-#home {
-  text-align: center;
-  background: linear-gradient(120deg, #3a1212, #501616);
-  padding: 160px 30px;
-}
-#home h1 {
-  font-size: 58px;
-  font-weight: 800;
-  color: #f5f5f5;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
-}
-#home p {
-  font-size: 22px;
-  margin-top: 18px;
-  color: #fafafa;
-}
+section { padding: 100px 40px; opacity: 0; transform: translateY(40px); transition: all 0.6s ease-out; border-radius: 12px; }
+#home { text-align: center; background: linear-gradient(120deg, #3a1212, #501616); padding: 160px 30px; }
+#home h1 { font-size: 58px; font-weight: 800; color: #f5f5f5; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); }
+#home p { font-size: 22px; margin-top: 18px; color: #fafafa; }
 
 /* Кнопки */
-.btn {
-  padding: 14px 28px;
-  font-size: 18px;
-  font-weight: bold;
-  margin: 8px;
-  border-radius: 8px;
-  text-decoration: none;
-  border: 2px solid #e6e6e6;
-  transition: 0.2s ease;
-}
-.btn.red {
-  background: #222;
-  color: #ff7777;
-}
-.btn.red:hover {
-  background: #330000;
-  color: #ffaaaa;
-  transform: scale(1.07);
-}
+.btn { padding: 14px 28px; font-size: 18px; font-weight: bold; margin: 8px; border-radius: 8px; text-decoration: none; border: 2px solid #e6e6e6; transition: 0.2s ease; }
+.btn.red { background: #222; color: #ff7777; }
+.btn.red:hover { background: #330000; color: #ffaaaa; transform: scale(1.07); }
 
 /* Заголовки секций */
-section h2 {
-  font-size: 38px;
-  margin-bottom: 18px;
-  text-align: center;
-  color: #f0f0f0;
-}
+section h2 { font-size: 38px; margin-bottom: 18px; text-align: center; color: #f0f0f0; }
 
 /* Контентные группы */
-#about, #world, #play, #news, #contact {
-  background: rgba(0,0,0,0.3);
-}
+#about, #world, #play, #news, #contact { background: rgba(0,0,0,0.3); }
 
 /* Footer */
-footer {
-  text-align: center;
-  padding: 14px;
-  background: rgba(0,0,0,0.45);
-  color: #ccc;
-}
+footer { text-align: center; padding: 14px; background: rgba(0,0,0,0.45); color: #ccc; }
 
-/* Появление при скролле */
-section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
+/* Анимация при скролле */
+section.visible { opacity: 1; transform: translateY(0); }
