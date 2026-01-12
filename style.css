@@ -2,76 +2,90 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: 'Segoe UI', Arial, sans-serif;
 }
 
 body {
-  background: radial-gradient(circle at top, #3a1212, #120606);
-  color: #f0f0f0;
+  background: linear-gradient(135deg, #2a0f0f, #120707);
+  color: #e6e6e6;
 }
 
-/* HEADER */
+/* ===== HEADER ===== */
 header {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 16px 48px;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(to right, #140606, #2b0e0e);
+  padding: 16px 40px;
   z-index: 100;
 }
 
 .logo {
   font-size: 26px;
-  font-weight: 800;
-  letter-spacing: 2px;
-  color: #ffd6d6;
+  font-weight: 700;
+  color: #ffb3b3;
 }
 
 nav a {
   color: #ddd;
-  margin-left: 22px;
+  margin-left: 20px;
   text-decoration: none;
   font-size: 15px;
-  transition: 0.25s;
 }
 
 nav a:hover {
-  color: #ff8a8a;
+  color: #ff8080;
 }
 
-/* SECTIONS */
-section {
-  padding: 140px 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-section:not(#home) {
-  background: rgba(0, 0, 0, 0.35);
-  border-radius: 20px;
-  margin-top: 80px;
-  box-shadow: 0 0 60px rgba(0, 0, 0, 0.5);
-}
-
-/* HOME */
+/* ===== HERO ===== */
 #home {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  padding-top: 140px;
   text-align: center;
 }
 
 #home h1 {
-  font-size: 72px;
-  letter-spacing: 4px;
-  margin-bottom: 20px;
+  font-size: 56px;
+  letter-spacing: 2px;
 }
 
 #home p {
-  font-size: 22px;
-  color: #ffbaba;
-  margin-b
+  margin-top: 14px;
+  font-size: 18px;
+  color: #ccc;
+}
+
+.buttons {
+  margin-top: 30px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 26px;
+  margin: 6px;
+  border-radius: 8px;
+  border: 1px solid #aaa;
+  color: #eee;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* ===== SECTIONS ===== */
+section {
+  max-width: 1100px;
+  margin: 80px auto;
+  padding: 40px;
+}
+
+.block {
+  background: rgba(0,0,0,0.45);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow:
