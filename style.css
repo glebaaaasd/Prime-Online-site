@@ -8,8 +8,8 @@
 
 /* Фон всей страницы и основной текст */
 body {
-  background-color: #e10600; /* красный фон */
-  color: #0a0a0a; /* чёрный текст */
+  background-color: #8B0000; /* тёмно-красный, мягче для глаз */
+  color: #f2f2f2; /* светлый текст для контраста */
   line-height: 1.6;
   scroll-behavior: smooth; /* плавный скролл */
 }
@@ -20,7 +20,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px 50px;
-  background-color: rgba(0,0,0,0.15); /* полупрозрачная чёрная навигация */
+  background-color: rgba(0,0,0,0.5); /* полупрозрачный тёмный фон */
   position: fixed;
   width: 100%;
   top: 0;
@@ -30,10 +30,11 @@ header {
 header .logo {
   font-size: 28px;
   font-weight: bold;
+  color: #f2f2f2;
 }
 
 header nav a {
-  color: #0a0a0a; /* чёрный текст */
+  color: #f2f2f2;
   text-decoration: none;
   margin-left: 20px;
   font-weight: bold;
@@ -42,12 +43,16 @@ header nav a {
 
 header nav a:hover {
   text-decoration: underline;
+  color: #ff9999; /* мягкий красный при hover */
 }
 
 /* Секции */
 section {
   padding: 120px 50px;
   min-height: 100vh;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
 }
 
 /* Главная секция */
@@ -76,27 +81,21 @@ section {
   display: inline-block;
   transition: all 0.3s;
   border-radius: 8px;
-  border: 2px solid #0a0a0a;
+  border: 2px solid #f2f2f2;
 }
 
-/* Играть — чёрная кнопка на красном фоне */
 .btn.red {
-  background-color: #0a0a0a; /* чёрная кнопка */
-  color: #e10600; /* текст красный */
+  background-color: #1a1a1a; /* тёмно-чёрный, мягче */
+  color: #ff6666; /* мягкий красный */
 }
 
 .btn.red:hover {
-  background-color: #1a1a1a;
-}
-
-/* Обычные кнопки */
-.btn {
-  background-color: #0a0a0a;
-  color: #e10600;
+  background-color: #333333;
+  color: #ff9999; /* светлее при наведении */
 }
 
 .btn:hover {
-  background-color: #1a1a1a;
+  transform: scale(1.05);
 }
 
 /* Заголовки секций */
@@ -104,18 +103,27 @@ section h2 {
   font-size: 40px;
   margin-bottom: 20px;
   text-align: center;
+  color: #f2f2f2;
 }
 
 /* Списки (шаги) */
 ol {
   margin-left: 40px;
+  color: #f2f2f2;
 }
 
 /* Footer */
 footer {
   text-align: center;
   padding: 20px;
-  background-color: rgba(0,0,0,0.2);
+  background-color: rgba(0,0,0,0.3); /* мягкий полупрозрачный фон */
+  color: #f2f2f2;
+}
+
+/* Анимация появления секций */
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Адаптив для мобильных */
@@ -132,15 +140,4 @@ footer {
   #home p {
     font-size: 18px;
   }
-}
-/* Анимация появления секций */
-section {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.8s ease-out;
-}
-
-section.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
