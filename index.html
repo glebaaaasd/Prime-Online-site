@@ -4,7 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Prime Online</title>
+
+  <!-- Минималистичный черно-белый favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Шрифт -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome для иконок в меню -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
     body {
       margin: 0;
@@ -15,6 +24,7 @@
       overflow-x: hidden;
     }
     a { text-decoration: none; color: inherit; }
+
     header {
       display: flex;
       justify-content: space-between;
@@ -26,6 +36,7 @@
       z-index: 100;
     }
     header h1 { font-size: 28px; font-weight: 700; text-shadow: 2px 2px 6px #000; }
+
     nav a {
       margin-left: 18px;
       padding: 10px 16px;
@@ -33,8 +44,12 @@
       border-radius: 5px;
       font-weight: bold;
       transition: .3s;
+      display: inline-flex;
+      align-items: center;
     }
+    nav a i { margin-right: 5px; color: #fff; transition: .3s; }
     nav a:hover { background: #800000; }
+    nav a:hover i { color: #b3b3b3; }
 
     .hero {
       position: relative;
@@ -51,7 +66,7 @@
       position: absolute;
       top:0; left:0;
       width:100%; height:100%;
-      background: rgba(75,0,0,0.5);
+      background: rgba(0,0,0,0.5);
       z-index:1;
     }
     #particles {
@@ -140,13 +155,13 @@
 <header>
   <h1>PRIME ONLINE</h1>
   <nav>
-    <a href="#features">Фичи</a>
-    <a href="#gallery">Галерея</a>
-    <a href="#trailer">Трейлер</a>
-    <a href="#subscribe">Подписаться</a>
-    <a href="#forum">Форум</a>
-    <a href="#donate">Донат</a>
-    <a href="#profile">Профиль</a>
+    <a href="#features"><i class="fas fa-cogs"></i> Фичи</a>
+    <a href="#gallery"><i class="fas fa-image"></i> Галерея</a>
+    <a href="#trailer"><i class="fas fa-film"></i> Трейлер</a>
+    <a href="#subscribe"><i class="fas fa-envelope"></i> Подписка</a>
+    <a href="#forum"><i class="fas fa-comments"></i> Форум</a>
+    <a href="#donate"><i class="fas fa-gift"></i> Донат</a>
+    <a href="#profile"><i class="fas fa-user"></i> Профиль</a>
   </nav>
 </header>
 
@@ -156,15 +171,9 @@
   <a href="#">VK</a>
 </div>
 
-<!-- Фоновая музыка и звуки -->
+<!-- Фоновая музыка -->
 <audio id="bg-music" loop>
   <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_6f0b0e8e92.mp3?filename=dark-ambient-11242.mp3" type="audio/mpeg">
-</audio>
-<audio id="click-sound">
-  <source src="https://assets.mixkit.co/sfx/preview/mixkit-player-jumping-2037.mp3" type="audio/mpeg">
-</audio>
-<audio id="hover-sound">
-  <source src="https://assets.mixkit.co/sfx/preview/mixkit-game-ui-click-1114.mp3" type="audio/mpeg">
 </audio>
 
 <button id="music-toggle" style="position:fixed; bottom:20px; right:20px; padding:10px 18px; background:#b30000; color:#fff; border:none; border-radius:6px; font-weight:700; cursor:pointer; z-index:999;">
@@ -208,11 +217,6 @@
   <p>Будь первым в бета‑тесте и получай уникальные арты!</p>
   <input type="email" placeholder="Ваш email">
   <button onclick="alert('Спасибо! Ты подписан')">Подписаться</button>
-  <div class="social-icons">
-    <a href="#">Discord</a>
-    <a href="#">Telegram</a>
-    <a href="#">VK</a>
-  </div>
 </section>
 
 <section id="forum" style="padding: 68px 40px; text-align:center; background: rgba(50,0,0,0.8);">
@@ -252,14 +256,6 @@ document.body.addEventListener('click', function initMusic(){
 btnMusic.addEventListener('click', ()=>{
   if(music.paused) music.play();
   else music.pause();
-});
-
-// Звуки клика и hover
-const clickSound = document.getElementById('click-sound');
-const hoverSound = document.getElementById('hover-sound');
-document.querySelectorAll('button, nav a').forEach(el=>{
-  el.addEventListener('click',()=>{ clickSound.currentTime=0; clickSound.play(); });
-  el.addEventListener('mouseenter',()=>{ hoverSound.currentTime=0; hoverSound.play(); });
 });
 
 // Параллакс hero
@@ -306,4 +302,3 @@ btnRight.addEventListener('click',()=>{ offset-=318; if(offset<-(slider.scrollWi
 
 </body>
 </html>
-
