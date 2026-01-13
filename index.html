@@ -6,7 +6,7 @@
 <title>Prime Online</title>
 
 <!-- Favicon PNG -->
-<link rel="icon" type="image/png" href="logo.png">
+<link rel="icon" type="image/png" href="images/prime-logo.png">
 
 <!-- Font Awesome для соц-кнопок -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -31,7 +31,7 @@ body {
 @keyframes bubble { 0% { transform: translateY(0) scale(0.5); opacity:0; } 10% { opacity:0.6; } 100% { transform: translateY(-120vh) scale(1.2); opacity:0; } }
 
 /* ===== Header ===== */
-header { position:fixed; top:0; width:100%; background:rgba(0,0,0,0.75); display:flex; justify-content:space-between; align-items:center; padding:14px 20px; z-index:1; }
+header { position:fixed; top:0; width:100%; background:rgba(0,0,0,0.75); display:flex; justify-content:space-between; align-items:center; padding:14px 20px; z-index:2; }
 .logo { font-size:22px; font-weight:bold; letter-spacing:1px; display:flex; align-items:center; gap:8px; }
 .logo img { height:40px; animation: logoPulse 2.5s infinite; }
 @keyframes logoPulse { 0%,100% { transform:scale(1); filter:drop-shadow(0 0 2px #fff);} 50% { transform:scale(1.05); filter:drop-shadow(0 0 8px #fff); } }
@@ -43,6 +43,47 @@ nav a:hover { opacity:1; }
 /* Гамбургер */
 #hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
 #hamburger div { width:26px; height:3px; background:#fff; }
+
+/* ===== Логотип Dodge Challenger ===== */
+.logo-main {
+  position: relative;
+  width: 600px;
+  margin: 120px auto 50px; /* Отступ сверху, чтобы не перекрывало header */
+  z-index: 1;
+}
+.logo-main img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255,0,0,0.6);
+  animation: logoGlow 2.5s infinite alternate;
+}
+@keyframes logoGlow {
+  0% { box-shadow:0 0 20px rgba(255,0,0,0.5);}
+  50% { box-shadow:0 0 40px rgba(255,0,0,0.9);}
+  100% { box-shadow:0 0 20px rgba(255,0,0,0.5);}
+}
+.logo-main .slogan {
+  position: absolute;
+  top: 20px;
+  width: 100%;
+  text-align: center;
+  font-size: 48px;
+  font-weight: bold;
+  color: #FF0000;
+  text-shadow: 2px 2px 6px #000;
+}
+.logo-main .brand-name {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+  color: #FF0000;
+  text-shadow: 2px 2px 6px #000;
+}
 
 /* ===== Hero ===== */
 .hero { min-height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:100px 20px 40px; }
@@ -80,6 +121,9 @@ section h2 { text-align:center; margin-bottom:30px; }
   .hero h1 { font-size:30px; }
   .features { grid-template-columns:1fr; }
   .social-buttons { position:static; flex-direction:row; justify-content:center; margin-top:20px; }
+  .logo-main { width:90%; margin-top:100px; }
+  .logo-main .slogan { font-size:32px; }
+  .logo-main .brand-name { font-size:24px; }
 }
 </style>
 </head>
@@ -91,7 +135,7 @@ section h2 { text-align:center; margin-bottom:30px; }
 
 <header>
   <div class="logo">
-    <img src="logo.png" alt="Prime Online">Prime Online
+    <img src="images/prime-logo.png" alt="Prime Online">Prime Online
   </div>
 
   <nav id="nav">
@@ -107,6 +151,13 @@ section h2 { text-align:center; margin-bottom:30px; }
     <div></div>
   </div>
 </header>
+
+<!-- ===== Логотип с Dodge Challenger ===== -->
+<div class="logo-main">
+  <div class="slogan">ПРАЙМ БИЛ</div>
+  <img src="images/prime-logo.png" alt="Prime Logo">
+  <div class="brand-name">ПРАЙМ ОНЛАЙН</div>
+</div>
 
 <div class="hero">
   <div>
