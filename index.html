@@ -57,15 +57,10 @@ nav a:hover i {color:#b3b3b3;}
 .subscribe input {padding:14px;width:250px;border:none;border-radius:6px;margin-right:10px;}
 .subscribe button {padding:14px 26px;background:#b30000;border:none;border-radius:6px;font-weight:700;transition:.3s;cursor:pointer;}
 .subscribe button:hover {background:#800000;}
-.subscribe .social-icons {display:flex;justify-content:center;gap:12px;margin-top:12px;}
-.subscribe .social-icons a {background:#b30000;padding:8px;border-radius:50%;}
-.subscribe .social-icons a:hover {background:#800000;}
-
-.social-fixed {position:fixed;top:50%;left:10px;display:flex;flex-direction:column;gap:12px;z-index:200;}
-.social-fixed a {background:#b30000;padding:10px;border-radius:50%;transition:.3s;}
-.social-fixed a:hover {background:#800000;}
 
 .profile-card {display:inline-block;background: rgba(60,0,0,0.7);padding:24px;border-radius:10px;text-align:center;}
+.profile-card button {padding:10px 22px; background:#b30000; border:none; border-radius:6px; color:#fff; font-weight:700; cursor:pointer; transition:.3s;}
+.profile-card button:hover {background:#800000; transform:scale(1.05);}
 
 #hamburger {display:none;flex-direction:column;cursor:pointer;gap:4px;}
 #hamburger div {width:25px;height:3px;background:#fff;}
@@ -74,12 +69,39 @@ nav a:hover i {color:#b3b3b3;}
 @keyframes floatText {from{transform:translateY(0);}to{transform:translateY(-8px);}}
 @keyframes floatButton {from{transform:translateY(0);}to{transform:translateY(-6px);}}
 
+.social-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 999;
+}
+.social-buttons a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg,#b30000,#800000);
+  border-radius: 50%;
+  color:#fff;
+  font-size:22px;
+  text-decoration:none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow:0 4px 8px rgba(0,0,0,0.4);
+}
+.social-buttons a:hover {
+  transform: scale(1.15);
+  box-shadow:0 6px 12px rgba(0,0,0,0.5);
+}
+
+/* Мобильные стили */
 @media(max-width:768px){
   header {flex-direction:row;justify-content:space-between;align-items:center;padding:12px 16px;}
-  
   #hamburger {display:flex;cursor:pointer;flex-direction:column;gap:5px;}
   #hamburger div {width:28px;height:3px;background:#fff;}
-  
   nav {display:none;flex-direction:column;width:100%;background:rgba(0,0,0,0.95);position:absolute;top:60px;left:0;padding:10px 0;z-index:200;}
   nav.show {display:flex;}
   nav a {margin:8px 0;padding:14px 20px;width:100%;font-size:18px;text-align:center;border-radius:0;}
@@ -90,16 +112,16 @@ nav a:hover i {color:#b3b3b3;}
 
   .features {grid-template-columns:1fr;padding:40px 16px;gap:16px;}
   .feature-card {padding:20px;font-size:14px;}
-  
+
   .gallery-slider img {width:100%;max-width:none;border-radius:8px;}
   .gallery-btn {padding:14px;}
-  
+
   .trailer iframe {width:100%;height:200px;}
-  
   .subscribe input, .subscribe button {width:90%;margin:6px auto;display:block;}
-  .subscribe .social-icons {flex-direction:row;justify-content:center;gap:8px;}
-  
-  #donate button, #profile .profile-card button {width:90%;margin:8px auto;display:block;}
+  .subscribe .social-icons {display:none;} /* убираем старые кнопки */
+  .social-buttons {position:static; flex-direction:row; justify-content:center; gap:14px; margin-top:20px;}
+  .social-buttons a {width:60px;height:60px;font-size:26px;}
+  #donate button, .profile-card button {width:90%;margin:8px auto;display:block;}
 }
 </style>
 </head>
@@ -108,9 +130,7 @@ nav a:hover i {color:#b3b3b3;}
 <header>
   <h1>PRIME ONLINE</h1>
   <div id="hamburger">
-    <div></div>
-    <div></div>
-    <div></div>
+    <div></div><div></div><div></div>
   </div>
   <nav>
     <a href="#features"><i class="fas fa-cogs"></i> Фичи</a>
@@ -123,17 +143,19 @@ nav a:hover i {color:#b3b3b3;}
   </nav>
 </header>
 
-<div class="social-fixed">
-  <a href="#">Discord</a>
-  <a href="#">Telegram</a>
-  <a href="#">VK</a>
+<!-- Социальные кнопки -->
+<div class="social-buttons">
+  <a href="#" title="Discord"><i class="fab fa-discord"></i></a>
+  <a href="#" title="Telegram"><i class="fab fa-telegram"></i></a>
+  <a href="#" title="VK"><i class="fab fa-vk"></i></a>
 </div>
 
+<!-- Фоновая музыка -->
 <audio id="bg-music" loop>
   <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_6f0b0e8e92.mp3?filename=dark-ambient-11242.mp3" type="audio/mpeg">
 </audio>
-<button id="music-toggle" style="position:fixed; bottom:20px; right:20px; padding:10px 18px; background:#b30000; color:#fff; border:none; border-radius:6px; font-weight:700; cursor:pointer; z-index:999;">
-  🔊 Включить музыку
+<button id="music-toggle" style="position:fixed; bottom:20px; right:100px; padding:10px 18px; background:#b30000; color:#fff; border:none; border-radius:6px; font-weight:700; cursor:pointer; z-index:999;">
+  🔊 Музыка
 </button>
 
 <section class="hero">
@@ -183,7 +205,7 @@ nav a:hover i {color:#b3b3b3;}
 <section id="donate" style="padding: 68px 40px; text-align:center; background: rgba(70,0,0,0.8);">
   <h2>Донат</h2>
   <p>Скоро можно будет поддержать проект и получить бонусы!</p>
-  <button style="padding:14px 28px; background:#b30000; border:none; border-radius:6px; color:#fff; font-weight:700;">Перейти к донату</button>
+  <button>Перейти к донату</button>
 </section>
 
 <section id="profile" style="padding: 68px 40px; text-align:center; background: rgba(90,0,0,0.8);">
@@ -193,7 +215,7 @@ nav a:hover i {color:#b3b3b3;}
     <h3>Имя игрока</h3>
     <p>Уровень: 12</p>
     <p>Баланс: 1500 монет</p>
-    <button style="padding:10px 22px; background:#b30000; border:none; border-radius:6px; color:#fff; font-weight:700;">Редактировать профиль</button>
+    <button>Редактировать профиль</button>
   </div>
 </section>
 
@@ -239,3 +261,4 @@ btnRight.addEventListener('click',()=>{ offset-=318;if(offset<-(slider.scrollWid
 
 </body>
 </html>
+
