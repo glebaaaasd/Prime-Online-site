@@ -43,11 +43,9 @@ body {
 .bubbles span {
   position: absolute;
   bottom: -150px;
-  width: 20px;
-  height: 20px;
-  background: rgba(255,255,255,0.25);
   border-radius: 50%;
-  animation: bubble 25s linear infinite;
+  background: rgba(255,255,255,0.25);
+  animation: bubble 20s linear infinite;
 }
 
 @keyframes bubble {
@@ -130,6 +128,26 @@ nav a:hover { opacity: 1; }
   color: #fff;
 }
 
+/* ===== ANIMATIONS ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s forwards;
+}
+
+@keyframes fadeInUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,100% { transform: scale(1); box-shadow: 0 0 10px rgba(255,0,0,0.5); }
+  50% { transform: scale(1.05); box-shadow: 0 0 20px rgba(255,0,0,0.8); }
+}
+
 /* ===== SECTIONS ===== */
 section {
   padding: 60px 20px;
@@ -151,6 +169,12 @@ section h2 { text-align: center; margin-bottom: 30px; }
   padding: 20px;
   border-radius: 12px;
   text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(255,0,0,0.4);
 }
 
 /* ===== SUBSCRIBE ===== */
@@ -241,15 +265,7 @@ section h2 { text-align: center; margin-bottom: 30px; }
 <body>
 
 <!-- ===== ПУЗЫРЬКИ ===== -->
-<div class="bubbles">
-  <span style="left:10%;animation-delay:0s"></span>
-  <span style="left:20%;animation-delay:5s;width:25px;height:25px"></span>
-  <span style="left:35%;animation-delay:2s;width:15px;height:15px"></span>
-  <span style="left:50%;animation-delay:8s;width:30px;height:30px"></span>
-  <span style="left:65%;animation-delay:4s;width:18px;height:18px"></span>
-  <span style="left:80%;animation-delay:10s;width:22px;height:22px"></span>
-  <span style="left:90%;animation-delay:6s;width:14px;height:14px"></span>
-</div>
+<div class="bubbles"></div>
 
 <header>
   <div class="logo">Prime Online</div>
@@ -270,9 +286,9 @@ section h2 { text-align: center; margin-bottom: 30px; }
 
 <div class="hero">
   <div>
-    <h1>Prime Online</h1>
-    <p>Онлайн-игра нового поколения</p>
-    <button>Смотреть трейлер</button>
+    <h1 class="fade-in">Prime Online</h1>
+    <p class="fade-in">Онлайн-игра нового поколения</p>
+    <button class="pulse">Смотреть трейлер</button>
   </div>
 </div>
 
@@ -301,6 +317,26 @@ section h2 { text-align: center; margin-bottom: 30px; }
 const hamburger = document.getElementById('hamburger');
 const nav = document.getElementById('nav');
 hamburger.onclick = () => nav.classList.toggle('show');
+
+// ===== Динамические пузырьки =====
+const bubblesContainer = document.querySelector('.bubbles');
+for(let i=0;i<30;i++){
+  let span = document.createElement('span');
+  let size = Math.random()*25+10;
+  span.style.width = size + 'px';
+  span.style.height = size + 'px';
+  span.style.left = Math.random()*100 + '%';
+  span.style.animationDuration = (Math.random()*20+10) + 's';
+  span.style.animationDelay = Math.random()*10 + 's';
+  bubblesContainer.appendChild(span);
+}
+
+// Fade-in текст при загрузке
+window.addEventListener('load', ()=>{
+  document.querySelectorAll('.fade-in').forEach((el, i)=>{
+    el.style.animationDelay = (0.3 + i*0.3) + 's';
+  });
+});
 </script>
 
 </body>
