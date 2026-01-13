@@ -31,11 +31,11 @@ body {
 @keyframes bubble { 0% { transform: translateY(0) scale(0.5); opacity:0; } 10% { opacity:0.6; } 100% { transform: translateY(-120vh) scale(1.2); opacity:0; } }
 
 /* ===== Header ===== */
-header { position:fixed; top:0; width:100%; background:rgba(0,0,0,0.75); display:flex; justify-content:flex-start; align-items:center; padding:10px 20px; z-index:3; }
+header { position:fixed; top:0; width:100%; background:rgba(0,0,0,0.75); display:flex; align-items:center; padding:10px 20px; z-index:3; }
 .logo { display:flex; align-items:center; gap:10px; }
-.logo img { height:60px; animation: logoPulse 2.5s infinite; }
-@keyframes logoPulse { 0%,100% { transform:scale(1); filter:drop-shadow(0 0 2px #fff);} 50% { transform:scale(1.1); filter:drop-shadow(0 0 10px #fff); } }
+.logo img { height:80px; /* Лого в header больше */ }
 
+/* ===== Навигация ===== */
 nav { display:flex; gap:18px; margin-left:20px; }
 nav a { color:#fff; text-decoration:none; font-size:16px; opacity:0.8; }
 nav a:hover { opacity:1; }
@@ -53,18 +53,12 @@ nav a:hover { opacity:1; }
   margin-bottom: 40px;
 }
 .hero-logo {
-  width: 500px; /* больше, чем раньше */
+  width: 550px; /* Чуть больше */
   max-width: 90%;
   height: auto;
   display: block;
   margin: 0 auto;
-  animation: logoHeroGlow 2.5s infinite alternate;
-  box-shadow: 0 0 30px rgba(255,0,0,0.7);
-}
-@keyframes logoHeroGlow {
-  0% { box-shadow: 0 0 20px rgba(255,0,0,0.4); }
-  50% { box-shadow: 0 0 50px rgba(255,0,0,0.9); }
-  100% { box-shadow: 0 0 20px rgba(255,0,0,0.4); }
+  /* Без свечения */
 }
 
 /* ===== Текст Hero ===== */
@@ -95,11 +89,11 @@ section h2 { text-align:center; margin-bottom:30px; }
 
 /* ===== Mobile ===== */
 @media(max-width:768px){
-  nav { display:none; position:absolute; top:60px; left:0; width:100%; background:rgba(0,0,0,0.95); flex-direction:column; padding:10px 0; }
+  nav { display:none; position:absolute; top:90px; left:0; width:100%; background:rgba(0,0,0,0.95); flex-direction:column; padding:10px 0; }
   nav.show { display:flex; }
   nav a { padding:14px; text-align:center; font-size:18px; }
   #hamburger { display:flex; }
-  .hero-logo { width:80%; }
+  .hero-logo { width:85%; }
   .hero-text h1 { font-size:30px; }
   .features { grid-template-columns:1fr; }
   .social-buttons { position:static; flex-direction:row; justify-content:center; margin-top:20px; }
