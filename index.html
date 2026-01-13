@@ -31,12 +31,12 @@ body {
 @keyframes bubble { 0% { transform: translateY(0) scale(0.5); opacity:0; } 10% { opacity:0.6; } 100% { transform: translateY(-120vh) scale(1.2); opacity:0; } }
 
 /* ===== Header ===== */
-header { position:fixed; top:0; width:100%; background:rgba(0,0,0,0.75); display:flex; justify-content:space-between; align-items:center; padding:14px 20px; z-index:2; }
-.logo { font-size:22px; font-weight:bold; letter-spacing:1px; display:flex; align-items:center; gap:8px; }
-.logo img { height:40px; animation: logoPulse 2.5s infinite; }
-@keyframes logoPulse { 0%,100% { transform:scale(1); filter:drop-shadow(0 0 2px #fff);} 50% { transform:scale(1.05); filter:drop-shadow(0 0 8px #fff); } }
+header { position:fixed; top:0; width:100%; background:rgba(0,0,0,0.75); display:flex; justify-content:flex-start; align-items:center; padding:10px 20px; z-index:3; }
+.logo { display:flex; align-items:center; gap:10px; }
+.logo img { height:60px; animation: logoPulse 2.5s infinite; }
+@keyframes logoPulse { 0%,100% { transform:scale(1); filter:drop-shadow(0 0 2px #fff);} 50% { transform:scale(1.1); filter:drop-shadow(0 0 10px #fff); } }
 
-nav { display:flex; gap:18px; }
+nav { display:flex; gap:18px; margin-left:20px; }
 nav a { color:#fff; text-decoration:none; font-size:16px; opacity:0.8; }
 nav a:hover { opacity:1; }
 
@@ -47,24 +47,24 @@ nav a:hover { opacity:1; }
 /* ===== Hero ===== */
 .hero { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:100px 20px 40px; z-index:1; }
 
-/* ===== Логотип внутри Hero ===== */
+/* ===== Главное лого в центре страницы ===== */
 .hero-logo-container {
   text-align: center;
   margin-bottom: 40px;
 }
 .hero-logo {
-  width: 330px;
+  width: 500px; /* больше, чем раньше */
+  max-width: 90%;
   height: auto;
   display: block;
   margin: 0 auto;
-  animation: logoHeroGlow 2.8s infinite alternate;
-  box-shadow: 0 0 20px rgba(255,0,0,0.6);
-  border-radius: 12px;
+  animation: logoHeroGlow 2.5s infinite alternate;
+  box-shadow: 0 0 30px rgba(255,0,0,0.7);
 }
 @keyframes logoHeroGlow {
-  0% { box-shadow: 0 0 15px rgba(255,0,0,0.4); }
-  50% { box-shadow: 0 0 35px rgba(255,0,0,0.8); }
-  100% { box-shadow: 0 0 15px rgba(255,0,0,0.4); }
+  0% { box-shadow: 0 0 20px rgba(255,0,0,0.4); }
+  50% { box-shadow: 0 0 50px rgba(255,0,0,0.9); }
+  100% { box-shadow: 0 0 20px rgba(255,0,0,0.4); }
 }
 
 /* ===== Текст Hero ===== */
@@ -99,7 +99,7 @@ section h2 { text-align:center; margin-bottom:30px; }
   nav.show { display:flex; }
   nav a { padding:14px; text-align:center; font-size:18px; }
   #hamburger { display:flex; }
-  .hero-logo { width:75%; }
+  .hero-logo { width:80%; }
   .hero-text h1 { font-size:30px; }
   .features { grid-template-columns:1fr; }
   .social-buttons { position:static; flex-direction:row; justify-content:center; margin-top:20px; }
@@ -114,7 +114,7 @@ section h2 { text-align:center; margin-bottom:30px; }
 
 <header>
   <div class="logo">
-    <img src="images/prime-logo.png" alt="Prime Online">Prime Online
+    <img src="images/prime-logo.png" alt="Prime Online">
   </div>
 
   <nav id="nav">
@@ -131,7 +131,7 @@ section h2 { text-align:center; margin-bottom:30px; }
   </div>
 </header>
 
-<!-- ===== Hero с логотипом (только логотип) ===== -->
+<!-- ===== Hero с логотипом в центре ===== -->
 <div class="hero">
   <div class="hero-logo-container">
     <img src="images/prime-logo.png" alt="Prime Online Logo" class="hero-logo">
