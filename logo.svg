@@ -1,1 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Круг с градиентом -->
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#b30000;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#700000;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <circle cx="50" cy="50" r="48" fill="url(#grad)" stroke="#fff" stroke-width="2"/>
+  
+  <!-- Буквы PO -->
+  <text x="50" y="62" font-size="40" font-family="Arial, Helvetica, sans-serif" font-weight="bold" fill="#fff" text-anchor="middle">PO</text>
+</svg>
 
